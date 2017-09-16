@@ -34,7 +34,9 @@ source-repository head
 library
   exposed-modules:     GHC.Proof
                        GHC.Proof.Plugin
-  build-depends:       base >=4.9 && <4.11
+                       GHC.Proof.TH
+  build-depends:       base >=4.9 && <4.11,
+                       template-haskell
   build-depends:       ghc >= 8.2 && <8.4
   default-language:    Haskell2010
 

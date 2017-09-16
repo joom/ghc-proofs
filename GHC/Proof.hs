@@ -95,4 +95,6 @@ non_proof _ _ = Proof
 (=/=) = non_proof
 infix 0 =/=
 
-
+-- A little trick to say: Prove this only for strict f
+str :: (a -> b) -> (a -> b)
+str f x = x `seq` f x

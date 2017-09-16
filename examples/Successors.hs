@@ -91,10 +91,6 @@ monad_law2 :: Succs a -> Proof
 monad_law2 m = m >>= return
            === m
 
--- A little trick to say: Prove this only for strict f
-str :: (a -> b) -> (a -> b)
-str f x = x `seq` f x
-
 monad_law3 :: Succs a -> (a -> Succs b) -> (b -> Succs c) -> Proof
 monad_law3 m k h = m >>= (\x -> k x >>= str h)
                === (m >>= k) >>= str h
